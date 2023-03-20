@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductForm from '../ProductForm/ProductForm'
+import productsData from '../data/products'
 
 const Product = ({ title, basePrice, colors, sizes, name }) => {
 
@@ -24,8 +25,8 @@ const getPrice = () => {
     return basePrice;
   }
 
-  const size = sizes.find(size => size.name === currentSize);
-  return (basePrice + size.price)
+  const additionalPrice = productsData.find(size => size.name === currentSize);
+  return (basePrice + additionalPrice)
 };
 
   return (
